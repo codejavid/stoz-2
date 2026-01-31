@@ -1,105 +1,257 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
+*{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
 
-body {
+body{
     font-family: "Poppins", sans-serif;
 }
 
-.container {
-    max-width: 1135px;
-    margin: 0px auto;
-    padding: 0px 15px;
-}
-
-a {
+a{
     text-decoration: none;
-    color: #fff;
     display: inline-block;
 }
 
+.container{
+    width: 80%;
+    margin: 0px auto;
+}
+
+h2{
+    font-size: 40px;
+}
+
+
 /* Header */
-main {
-    background-image: url("./img//banner/bg.png");
+main{
+    background: url("./img/banner/bg.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-header {
-    padding: 20px 0px;
+header{
+    padding: 15px 0px;
+    /* margin: 50px 0px; */
+    /* background-color: red; */
 }
 
-.header-wrapper {
+.header-wrapper{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.header-wrapper nav{
     display: flex;
+    gap: 30px;
+}
+
+.btn{
+   
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+}
+
+.secondary-btn{
+    background-color: rgba(51, 51, 51,0.2);
+}
+
+.primary-btn{
+    background-color: #231A36;
+}
+
+
+/* Banner */
+.banner {
+    padding: 100px 0px 125px 0px;
+    text-align: center;
+    color: #ffffff;
+    /* background-color: red; */
+}
+
+.banner h1{
+    font-size: 94px;
+    margin-bottom: 50px;
+}
+
+
+.banner p{
+    font-size: 18x;
+    margin-bottom: 80px;
+}
+
+/* clients */
+
+.clients{
+    padding: 100px 0px;
+}
+
+.clients h4{
+    margin-bottom: 40px;
+    text-align: center;
+    color: #B2B7BE;
+    font-weight: 500;
+}
+
+.clients-wrapper{
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
 
-.header-wrapper nav {
-    display: flex;
-    gap: 40px;
+.clients-wrapper div img{
+    width: 100%;
 }
 
-.btn {
-    padding: 15px 20px;
-    border-radius: 30px;
+.solutions{
+    padding: 100px 0px;
 }
 
-.btn.primary {
-    background-color: #231A36;
-}
-
-.btn.secondary {
-    background-color: rgba(255, 250, 249, 0.2);
-}
-
-
-/* Banner start */
-
-.banner {
+.sec-heading{
     text-align: center;
-    padding: 50px 0px 100px 0px;
-    color: #ffffff;
+    margin-bottom: 50px;
 }
 
-.banner h1 {
-    font-size: 94px;
+.sec-heading h2{
     margin-bottom: 20px;
 }
 
-.banner p {
-    margin-bottom: 35px;
+
+
+/* solutions */
+
+.solutions .container{
+    max-width: 900px;
+}
+
+.solutions-wrapper > div{
+   display: flex;
+   align-items: center;
+}
+
+.solutions-wrapper > div > div{
+    width: 50%;
+}
+
+.solutions-wrapper > div > div:nth-child(2){
+    text-align: right;
+}
+
+.solutions-wrapper > div:nth-child(2){
+    flex-direction: row-reverse;
+}
+
+.solutions-wrapper > div:nth-child(2) > div:nth-child(2){
+   text-align: left;
+}
+
+/* search */
+
+.search{
+    padding: 100px 0px;
+    color: #ffffff;
+    background-color: #231A36;
+}
+.search .container{
+    max-width: 845px;
+    padding: 100px 0px;
+}
+
+.search-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.search-wrapper > div{
+    text-align: center;
+}
+
+/* Need */
+
+.need-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+.need-wrapper > div > img{
+    width: 100%;
+}
+
+.need-wrapper > div > div{
+    background-color: green;
+    padding: 25px;
+    width: 80%;
+}
+
+.need-wrapper > div > div > div{
+    display: flex;
+    gap: 20px;
+}
+
+.need-wrapper > div > div > div span{
+    font-size: 10px;
 }
 
 
 
-@media only screen and (min-width: 1100px) {
-
-    .line-break {
+@media (min-width: 768px) {
+    .line-break{
         display: block;
+    }    
+}
+
+@media (max-width: 998px) {
+    .clients-wrapper div{
+        width: 30%;
+        text-align: center;
     }
 
+    .clients-wrapper div img{
+        width: 60%;
+    }
 
+    .solutions-wrapper > div{
+        flex-direction: column !important;
+        margin-bottom: 30px;
+        gap: 50px;
+    }
+
+    .solutions-wrapper > div > div{
+        width: 100%;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner h1{
+        font-size: 40px;
+    }
+
+    .search-wrapper > div {
+        width: 45%;
+        margin-bottom: 30px;
+    }
 }
 
 
-
-
-@media only screen and (max-width: 700px) {
-
-    .header-wrapper {
-        flex-direction: column;
-        gap: 20px;
+@media (max-width: 600px) {
+    .clients-wrapper div{
+        width: 45%;
     }
 
-    .banner h1 {
-        font-size: 50px;
+    .search-wrapper > div {
+        width: 100%;
     }
-
-
 }
+
+@media (max-width: 300px) {
+    .clients-wrapper div{
+        width: 100%;
+    }
+}
+
