@@ -1,0 +1,154 @@
+:root{
+    --primary-color:#651FFF;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    margin: 0px;
+}
+
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+a{
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover{
+    color: #ffffff;
+}
+
+/* h2{
+    font-size: 56px;
+} */
+
+.my-primary{
+    color:var(--primary-color);
+}
+
+.my-btn{
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.banner,
+.hero-image,
+.lightning,
+.team,
+.privacy, 
+.fair,
+.ready{
+    padding: 100px 0px;
+}
+
+.banner{
+    background-color: #EBE5FA;
+}
+
+/* lightning start */
+.lightning-wrapper > div > div > div{
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 50px;
+    border-radius: 20px;
+}
+
+/* team */
+
+.team-wrapper > div > div > div{
+   padding: 50px;
+   border-radius: 20px;
+}
+
+.team-wrapper > div > div:nth-child(1) > div{
+    background-color: #FFF7ED;
+}
+
+.team-wrapper > div > div:nth-child(2) > div{
+    background-color: #E0F7FA;
+}
+
+.collaboration-wrapper{
+    background-color: #ECECFE;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top:25px;
+}
+
+.privacy-second-child > div{
+   padding: 20px;
+   box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.1);
+   border-radius: 20px;
+}
+
+/* Fair */
+
+.fair{
+    background-image: linear-gradient(to bottom, #00E5FF 60%, #ffffff 0%);
+}
+
+.fair-wrapper > div > div:nth-child(1) > div{
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0px 4px 24px 0px rgba(0, 0, 0, 0.2);
+}
+
+.fair-wrapper > div > div:nth-child(2) > div{
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.batch{
+    padding: 5px 8px;
+    border-radius: 20px;
+    background-color: #ffffff;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.batch-blue{
+ color: #651FFF;
+}
+
+.batch-green{
+ color:#22D3EE;
+}
+
+.fair-box{
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+}
+
+.ready-wrapper > div > div > div{
+    padding: 25px;
+    border-radius: 20px;
+}
+
+.ready-wrapper > div > div:nth-child(1) > div{
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.ready-wrapper > div > div:nth-child(2) > div{
+    background-color: #ECECFE;
+    color: var(--primary-color);
+}
+
+@media (min-width: 992px) {
+    .privacy h2{font-size: 48px;}
+}
+  
