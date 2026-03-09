@@ -76,7 +76,7 @@ if(color === "red"){
     console.log("I dont know the color");
 }
 
-// LOgical operator
+// Logical operator
 
 // AND - && check both the value
 
