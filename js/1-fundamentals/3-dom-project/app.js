@@ -5,18 +5,24 @@ const form = document.querySelector("#task-form");
 const taskInput = document.querySelector("#task");
 const taskList = document.querySelector(".collection");
 const clearBtn = document.querySelector(".clear-tasks");
-// const filter = document.querySelector("#search");
+const filter = document.querySelector("#search");
 
 
 // Load all event listerners
 
-function loadEventListerners(){
+function loadEventListerners() {
 
     // Add task event
     form.addEventListener("submit", addTask);
 
     // Clear task lists
     clearBtn.addEventListener("click", clearTask);
+
+    // Remove task list
+    taskList.addEventListener("click", removeTask);
+
+    // Filter task event
+    filter.addEventListener("keyup", filterTasks);
 
 
 }
@@ -26,14 +32,14 @@ function loadEventListerners(){
 loadEventListerners();
 
 
-function addTask(e){
+function addTask(e) {
     e.preventDefault();
 
 
-    if(taskInput.value === ""){
+    if (taskInput.value === "") {
         alert("Please fill the form");
-    }else{
-        
+    } else {
+
         // Create element
         const li = document.createElement("li");
 
@@ -61,18 +67,58 @@ function addTask(e){
     }
 }
 
+function removeTask(e) {
 
-function clearTask(){
+    // if(e.target.parentElement.className === "delete-item secondary-content"){
+    //     if(confirm("Are you sure?")){
+    //         e.target.parentElement.parentElement.remove();
+    //     } 
+    // }
+
+    if (e.target.parentElement.classList.contains("delete-item")) {
+        if (confirm("Are you sure?")) {
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+
+}
+
+
+function clearTask() {
 
     // taskList.innerHTML = "";
 
-     const listItems = Array.from(taskList.children);
+    const listItems = Array.from(taskList.children);
 
-     console.log(listItems);
+    console.log(listItems);
 
-     listItems.forEach(function(li, index, arr){
+    listItems.forEach(function (li, index, arr) {
         li.remove();
-     })
+    })
 
 }
+
+function filterTasks(e){
+
+    const text = e.target.value.toLowerCase();
+ 
+    document.querySelectorAll(".collection-item").forEach(function(task){
+        
+        const item = task.innerText;
+
+        if(item.toLowerCase().indexOf(text) != -1){
+            task.style.display = "block";
+        }else{
+            task.style.display = "none";
+        }
+
+    })
+
+}
+
+
+
+// const arr = ["Hello", "Hai", "Bruh"];
+
+// console.log(arr.indexOf("vanakam"));
 
