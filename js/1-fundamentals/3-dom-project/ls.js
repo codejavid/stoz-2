@@ -1,12 +1,14 @@
 
 
-localStorage.setItem("task", "Hello");
+// Set, Get, Remove, Delete
 
-// console.log(localStorage.getItem("task"));
+localStorage.setItem("tasks", "Hello");
 
-// localStorage.removeItem("task");
+console.log(localStorage.getItem("tasks"));
 
-// console.log(localStorage.getItem("task"));
+localStorage.removeItem("tasks");
+
+console.log(localStorage.getItem("tasks"));
 
 
 // JSON
@@ -21,5 +23,5 @@ console.log(arrToString);
 
 const stringToArr = JSON.parse(arrToString);
 
-console.log(stringToArr);
 
+console.log(stringToArr);
