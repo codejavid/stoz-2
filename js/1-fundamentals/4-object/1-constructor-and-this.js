@@ -41,6 +41,8 @@ console.log(person2.getFullName());
 
 
 
+
+
 // console.log(this); // window
 
 // function x(){
