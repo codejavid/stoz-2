@@ -1,0 +1,58 @@
+import React, { use } from 'react'
+
+const App = () => {
+
+  const name = "javid";
+  const age = 28;
+
+  const users = [
+    {id:1, text:"User 1"},
+    {id:2, text:"User 2"},
+    {id:3, text:"User 3"},
+  ];
+
+  const loading = false;
+
+  const showUser = true;
+
+  const userBlock = (
+    <ul>
+        {users.map((user) => (
+          <li key={user.id}>
+            {user.text}
+          </li>
+        ))}
+    </ul>
+  );
+  
+  if(loading) return <h1>Loading...</h1>
+
+  return (
+   <div>
+     <h1>{name}</h1>
+     <h2>{age}</h2>
+
+     <span>{5 + 5}</span>
+
+     <h3>User length ({users.length})</h3>
+      
+      {/* {showUser ? (
+        <ul>
+            {users.map((user) => (
+              <li key={user.id}>
+                {user.text}
+              </li>
+            ))}
+        </ul>
+       ) : null} */}
+
+       {showUser && userBlock}
+      
+
+   </div>
+  )
+}
+
+export default App
+
+
