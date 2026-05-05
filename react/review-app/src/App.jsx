@@ -2,6 +2,8 @@
 import { useState } from "react"
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList";
+import FeedbackForm from "./components/FeedbackForm";
+
 
 
 const App = () => {
@@ -19,9 +21,13 @@ const App = () => {
     {
       id:3,
       text:"This is a sample 3"
-    },
+    }
   ]);
 
+
+  const deleteFeedback = (id) => {
+    setFeedback(feedback.filter(item => item.id !== id));
+  }
 
 
 
@@ -30,7 +36,8 @@ const App = () => {
       <Header text="Review app" bgColor="#333333" textColor="#ffffff" />
        
       <div className="container">
-        <FeedbackList feedback={feedback}/>
+        <FeedbackForm/>
+        <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
       </div>
 
       

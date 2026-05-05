@@ -1,7 +1,9 @@
 import { MdEdit } from "react-icons/md"
 import { MdDelete } from "react-icons/md"
 
-const FeedbackItem = ({item}) => {
+const FeedbackItem = ({item, handleDelete}) => {
+
+
   return (
     <div className="card">
         <div className='card-wrapper'>
@@ -13,7 +15,7 @@ const FeedbackItem = ({item}) => {
             </div>
 
             <div className="delete">
-              <MdDelete size="20px"/>
+              <MdDelete size="20px" onClick={() => handleDelete(item.id)}/>
             </div>
           </div>
     </div>
