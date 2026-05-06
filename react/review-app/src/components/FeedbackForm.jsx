@@ -1,9 +1,12 @@
 import { useState } from "react"
 import Button from "./shared/Button"
+import { v4 as uuidv4 } from "uuid";
+import Card from "./shared/Card";
 
 
 
-const FeedbackForm = () => {
+
+const FeedbackForm = ({handleAdd}) => {
 
   const [text, setText] = useState("");  
   const [btnDisable, setBtnDisabled] = useState(true);  
@@ -27,13 +30,30 @@ const FeedbackForm = () => {
 
 
   }
+
+  const handleSubmit = (e) => {
+
+     e.preventDefault();
+
+     const newFeedback = {
+       id:uuidv4(),
+       text:text
+     }
+
+     handleAdd(newFeedback);
+
+     setText("");
+     setBtnDisabled(true);
+
+
+  }
   
     
   return (
-    <div className='card'>
+    <Card>
         <h3>Add your review</h3>
 
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='input-group'>
                 <input type="text" placeholder='Enter your ideas' value={text} onChange={handleTextChange}/>
                 <Button version="primary" type="submit" isDiabled={btnDisable}>
@@ -47,7 +67,7 @@ const FeedbackForm = () => {
                     {messsage}
                 </p>
         </form>
-    </div>
+    </Card>
   )
 }
 

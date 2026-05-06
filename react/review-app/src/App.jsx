@@ -1,8 +1,14 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "./components/Header"
 import FeedbackList from "./components/FeedbackList";
 import FeedbackForm from "./components/FeedbackForm";
+import FeedbackStats from "./components/FeedbackStats";
+
+
+
+
+
 
 
 
@@ -25,21 +31,22 @@ const App = () => {
   ]);
 
 
-  const deleteFeedback = (id) => {
-    setFeedback(feedback.filter(item => item.id !== id));
+  const addFeedback = (newFeedback) => {
+    setFeedback([newFeedback, ...feedback]);
   }
 
 
 
   return (
     <div>
+
       <Header text="Review app" bgColor="#333333" textColor="#ffffff" />
        
       <div className="container">
-        <FeedbackForm/>
-        <FeedbackList feedback={feedback} handleDelete={deleteFeedback}/>
+        <FeedbackForm handleAdd={addFeedback}/>
+        <FeedbackStats/>
+        <FeedbackList/>
       </div>
-
       
 
     </div>
