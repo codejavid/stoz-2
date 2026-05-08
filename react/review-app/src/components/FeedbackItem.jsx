@@ -1,14 +1,15 @@
 import { MdEdit } from "react-icons/md"
 import { MdDelete } from "react-icons/md"
 import Card from "./shared/Card"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import FeedbackContext from "../context/FeedbackContext"
 
 
 
 const FeedbackItem = ({item}) => {
 
-  const {deleteFeedback} = useContext(FeedbackContext);
+
+  const {editFeedback, deleteFeedback} = useContext(FeedbackContext);
 
 
   return (
@@ -18,7 +19,7 @@ const FeedbackItem = ({item}) => {
 
         <div>
             <div className="edit">
-              <MdEdit size="20px"/>
+              <MdEdit size="20px" onClick={() => editFeedback(item)}/>
             </div>
 
             <div className="delete">
