@@ -4,14 +4,17 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js"
 import cors from "cors";
 
-import User from "./models/User.js";
+import authRoutes from "./routes/authRoutes.js";
+import productRoutes from './routes/productRoutes.js';
+import orderRoutes from './routes/orderRoutes.js';
 
 
 dotenv.config();
+connectDB();
 
 const app = express();
 
-
+// Global Middleware
 app.use(express.json());
 
 
@@ -21,65 +24,15 @@ app.get("/", (req, res) => {
     })
 });
 
-app.post("/register", async (req, res) => {
-    try{
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/orders", orderRoutes);
 
-        const { name, email, password } = req.body;
-
-        const userExists = await User.findOne({email});
-
-        if(userExists){
-            return res.status(400).json({message:"User already exist"});
-        }
-
-        const user = await User.create({
-            name,
-            email,
-            password
-        })
-
-        if(user){
-            res.status(201).json({
-                _id:user._id,
-                name:user.name,
-                email:user.email,
-                isAdmin:user.isAdmin,
-                token:"this a token"
-            })
-        }
-
-    }catch(err){
-        res.status(400).json({message:`Invalid user data`});
-    }
-})
-
-
-app.post("/login", async (req, res) => {
-    try{
-
-        const { email, password } = req.body;
-
-        const user = await User.findOne({email});
-
-        if(user){
-            res.status(200).json({
-                _id:user._id,
-                name:user.name,
-                email:user.email,
-                isAdmin:user.isAdmin,
-                token:"this a token"
-            })
-        }else{
-            res.status(401).json({message:"Invalid email or password"});
-        }
-
-    }catch(err){
-        res.status(400).json({message:`Invalid user data`});
-    }
-})
 
 
 const PORT = process.env.PORT || 5000;
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
